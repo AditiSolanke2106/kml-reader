@@ -1,7 +1,6 @@
 import React from "react";
 
-
-const SummaryView = ({ kmlData }) => {
+const SummaryView = ({ kmlData = [] }) => {
   const summary = kmlData.reduce((acc, item) => {
     acc[item.type] = (acc[item.type] || 0) + 1;
 

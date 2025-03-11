@@ -1,94 +1,70 @@
-/* Light Mode */
+@import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=DM+Serif+Display:ital@0;1&family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1,700&family=Kumar+One&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Ponomar&family=Quando&family=Sedan+SC&family=Shojumaru&display=swap');
 .light-mode {
-  background-color: white;
-  color: black;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.3s, color 0.3s;
-  position: relative;
+  background-color: #ffffff;
+  color: #000000;
+  transition: all 0.3s ease-in-out;
 }
 
-/* Dark Mode */
 .dark-mode {
-  background-color: black;
-  color: white;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.3s, color 0.3s;
-  position: relative;
+  background-color: #121212;
+  color: #ffffff;
+  transition: all 0.3s ease-in-out;
 }
-
-/* Button Styling */
-.toggle-btn {
+.theme-toggle {
   position: absolute;
   top: 10px;
-  right: 10px;
+  right: 20px;
   padding: 10px 15px;
   border: none;
   cursor: pointer;
-  font-size: 16px;
   border-radius: 5px;
-}
-
-.light-mode .toggle-btn {
-  background-color: black;
+  font-size: 1rem;
+  background-color: #6200ea;
   color: white;
 }
 
-.dark-mode .toggle-btn {
-  background-color: white;
-  color: black;
-}
-/* Container styling */
-.container {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+.theme-toggle:hover {
+  background-color: #3700b3;
 }
 
-/* Table styling */
+/* Summary & Detailed View Container */
+.summary-detailed-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+  max-width: 80%;
+  margin: auto;
+}
+
+/* Table Styles */
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 20px;
 }
 
-/* Header styling */
-th {
-  background-color: #007bff;
-  color: white;
+th, td {
+  border: 1px solid #444;
   padding: 10px;
   text-align: center;
 }
 
-/* Alternating row colors */
+/* Alternating Row Colors */
 tbody tr:nth-child(odd) {
-  background-color: #f2f2f2; /* Light row */
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 tbody tr:nth-child(even) {
-  background-color: #dddddd; /* Dark row */
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Hover effect */
+/* Hover Effect */
 tbody tr:hover {
-  background-color: #a6c8ff;
-  transition: background-color 0.3s ease-in-out;
+  background-color: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
 }
-
-/* Cell styling */
-td {
-  padding: 10px;
-  text-align: center;
-  border: 1px solid #ddd;
+h1{
+  font-family: "DM Serif Display", serif;
+  color: #008080;
 }

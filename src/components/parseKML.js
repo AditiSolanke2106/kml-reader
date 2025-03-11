@@ -9,14 +9,12 @@ export const parseKML = (kmlText) => {
   }
 
   let placemarks = jsonData.kml.Document.Placemark || [];
+  if (!Array.isArray(placemarks)) placemarks = [placemarks];
 
-  if (!Array.isArray(placemarks)) {
-    placemarks = [placemarks];
-  }
-
-  const elements = placemarks.map((placemark) => {
+  return placemarks.map((placemark) => {
     let type = "Unknown";
     let coordinates = [];
+    let totalLength = null;
 
     if (placemark.Point) {
       type = "Point";
@@ -25,23 +23,22 @@ export const parseKML = (kmlText) => {
       type = "LineString";
       coordinates = placemark.LineString.coordinates._text.trim().split(" ");
 
-      let totalLength = 0;
+      totalLength = 0;
       for (let i = 0; i < coordinates.length - 1; i++) {
         const [lon1, lat1] = coordinates[i].split(",").map(Number);
         const [lon2, lat2] = coordinates[i + 1].split(",").map(Number);
         totalLength += getDistance(lat1, lon1, lat2, lon2);
       }
-
-      return { type, coordinates, totalLength };
     } else if (placemark.Polygon) {
       type = "Polygon";
-      coordinates = placemark.Polygon.outerBoundaryIs.LinearRing.coordinates._text.trim().split(" ");
+      coordinates =
+        placemark.Polygon.outerBoundaryIs.LinearRing.coordinates._text
+          .trim()
+          .split(" ");
     }
 
-    return { type, coordinates };
+    return { type, coordinates, totalLength };
   });
-
-  return elements;
 };
 
 const getDistance = (lat1, lon1, lat2, lon2) => {
@@ -56,7 +53,5 @@ const getDistance = (lat1, lon1, lat2, lon2) => {
     Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
     Math.sin(dLon / 2) * Math.sin(dLon / 2);
 
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-
-  return R * c;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 };

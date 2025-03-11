@@ -1,10 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 const DetailedView = ({ kmlData }) => {
-  useEffect(() => {
-    console.log("Received KML Data:", kmlData);
-  }, [kmlData]);
-
   return (
     <div>
       <h3>Detailed View</h3>
@@ -13,19 +9,21 @@ const DetailedView = ({ kmlData }) => {
           <tr>
             <th>Element Type</th>
             <th>Coordinates</th>
+            <th>Length (if applicable)</th>
           </tr>
         </thead>
         <tbody>
-          {kmlData && kmlData.length > 0 ? (
+          {kmlData.length > 0 ? (
             kmlData.map((item, index) => (
               <tr key={index}>
                 <td>{item.type}</td>
                 <td>{item.coordinates ? item.coordinates.join(", ") : "N/A"}</td>
+                <td>{item.totalLength ? `${item.totalLength.toFixed(2)} km` : "N/A"}</td>
               </tr>
             ))
           ) : (
             <tr>
-              <td colSpan="2">No data found</td>
+              <td colSpan="3">No data found</td>
             </tr>
           )}
         </tbody>

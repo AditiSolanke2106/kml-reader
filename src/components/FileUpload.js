@@ -1,5 +1,4 @@
-// src/components/FileUploader.js
-import React from 'react';
+import React from "react";
 
 const FileUploader = ({ onFileUpload }) => {
   const handleFileChange = (event) => {
@@ -8,19 +7,16 @@ const FileUploader = ({ onFileUpload }) => {
 
     const reader = new FileReader();
     reader.onload = (e) => {
-      const parser = new DOMParser();
-      const xmlDoc = parser.parseFromString(e.target.result, 'text/xml');
-
-      if (xmlDoc.getElementsByTagName("parsererror").length) {
-        alert("Invalid KML file. Please upload a valid KML file.");
-        return;
-      }
-
-      onFileUpload(xmlDoc);
+      onFileUpload(e.target.result);
     };
     reader.readAsText(file);
   };
 
-  return <input type="file" accept=".kml" onChange={handleFileChange} />;
+  return (
+    <div>
+      <input  type="file" accept=".kml" onChange={handleFileChange} />
+    </div>
+  );
 };
+
 export default FileUploader;
