@@ -10,11 +10,10 @@ const SummaryView = ({ kmlData = [] }) => {
 
     return acc;
   }, { kml: 1, Document: 1 });
-
   return (
-    <div className="container">
-      <h2>Summary</h2>
-      <table>
+    <div className="summary-container">
+      <h3>Summary</h3>
+      <table className="summary-table">
         <thead>
           <tr>
             <th>Element Type</th>
@@ -32,6 +31,7 @@ const SummaryView = ({ kmlData = [] }) => {
       </table>
     </div>
   );
+  
 };
 
 export default SummaryView;

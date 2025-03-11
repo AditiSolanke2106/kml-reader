@@ -37,7 +37,7 @@ const MapView = ({ kmlData }) => {
     };
   }, [kmlData]);
 
-  return <div ref={mapRef} style={{ height: "400px", width: "100%" }} />;
+  return <div ref={mapRef} style={{ height: "400px", width: "95%" ,marginLeft:"1rem"}} />;
 };
 
 export default MapView;

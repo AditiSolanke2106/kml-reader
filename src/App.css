@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=DM+Serif+Display:ital@0;1&family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1,700&family=Kumar+One&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Ponomar&family=Quando&family=Sedan+SC&family=Shojumaru&display=swap');
+
 .light-mode {
   background-color: #ffffff;
   color: #000000;
@@ -27,7 +28,6 @@
   background-color: #3700b3;
 }
 
-/* Summary & Detailed View Container */
 .summary-detailed-container {
   display: flex;
   justify-content: center;
@@ -38,7 +38,7 @@
   margin: auto;
 }
 
-/* Table Styles */
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -50,7 +50,7 @@ th, td {
   text-align: center;
 }
 
-/* Alternating Row Colors */
+
 tbody tr:nth-child(odd) {
   background-color: rgba(0, 0, 0, 0.2);
 }
@@ -59,12 +59,16 @@ tbody tr:nth-child(even) {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
+
 /* Hover Effect */
 tbody tr:hover {
   background-color: rgba(255, 255, 255, 0.3);
   cursor: pointer;
 }
-h1{
+h1,h3{
   font-family: "DM Serif Display", serif;
   color: #008080;
+}
+h3{
+  font-size: 1.2rem;
 }

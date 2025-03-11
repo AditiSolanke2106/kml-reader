@@ -20,13 +20,13 @@ const App = () => {
   };
 
   return (
-    <div className={darkMode ? "dark-mode" : "light-mode"} style={{ textAlign: "center" ,width:"95%"}}>
+    <div className={darkMode ? "dark-mode" : "light-mode"} style={{borderRadius:"10%",marginBottom:"2rem", textAlign: "center",width:"98%"}}>
       <button className="theme-toggle" onClick={toggleTheme}>
         {darkMode ? "Light Mode 🌞" : "Dark Mode 🌙"}
       </button>
 
       <h1 style={{ marginTop: "1.5rem" }}>KML File Reader</h1>
-      <p style={{ color: "#800080", fontSize: "1.3rem" }}>Upload Valid KML File</p>
+      <p style={{ color: "#800080", fontSize: "1.3rem" ,marginBottom:"1rem"}}>Upload Valid KML File</p>
       <FileUploader onFileUpload={handleFileUpload} />
       <MapView kmlData={kmlData} />
      

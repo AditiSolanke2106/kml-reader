@@ -14,7 +14,7 @@ const FileUploader = ({ onFileUpload }) => {
 
   return (
     <div>
-      <input  type="file" accept=".kml" onChange={handleFileChange} />
+      <input  type="file" accept=".kml" onChange={handleFileChange} style={{marginBottom:"2rem"}}/>
     </div>
   );
 };
